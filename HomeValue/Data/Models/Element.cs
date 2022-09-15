@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 
 namespace HomeValue.Data.Models
 {
+    //Модель которая будет храниться в БД 
     public class Element
     {
         public int Id { get; set; }
