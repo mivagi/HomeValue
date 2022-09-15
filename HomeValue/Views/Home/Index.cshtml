@@ -1,0 +1,21 @@
+﻿@using HomeValue.Data.Models
+@model IEnumerable<Element> 
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    @foreach(var el in Model)
+    {
+        <h3><a>Посчитать сколько стоит @el.Name</a></h3>
+    }
+</body>
+</html>
