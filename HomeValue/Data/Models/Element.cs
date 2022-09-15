@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace HomeValue.Data.Models
 {
-    //Модель которая будет храниться в БД 
+    //Модель для хранения названия работ, стоимости работы и стоимости материалов 
     public class Element
     {
         public int Id { get; set; }

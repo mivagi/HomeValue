@@ -1,21 +1,10 @@
-﻿@using HomeValue.Data.Models
-@model IEnumerable<Element> 
+﻿@model IEnumerable<Element>
 
 @{
-    Layout = null;
+    ViewData["Title"] = "Index";
 }
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-</head>
-<body>
-    @foreach(var el in Model)
-    {
-        <h3><a>Посчитать сколько стоит @el.Name</a></h3>
-    }
-</body>
-</html>
+@foreach (var el in Model)
+{
+    <h3><a asp-action="Distributor" asp-route-name="@el.Name">Посчитать сколько стоит @el.Name</a></h3>
+}

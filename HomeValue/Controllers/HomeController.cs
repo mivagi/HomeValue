@@ -19,5 +19,14 @@ namespace HomeValue.Controllers
         {
             return View(elements.Elements);
         }
+        public IActionResult Distributor(string name)
+        {
+            if (name == "фундамент")
+                return View("Concrete");
+            else if (name == "стены")
+                return View("Wall");
+            else
+                return View("Roof");
+        }
     }
 }
