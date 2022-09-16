@@ -23,19 +23,17 @@ namespace HomeValue
         {
             this.config = config;
         }
-        // This method gets called by the runtime. Use this method to add services to the container.
-        // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<AppDbContent>(op => op.UseSqlServer(config.GetConnectionString("DefaultConnection")));
             services.AddTransient<IAllElements, ElementRepository>();
+            services.AddTransient<IHttpContextAccessor, HttpContextAccessor>();
             services.AddScoped(sp => Estimate.GetEstimate(sp));
             services.AddMvc();
             services.AddMemoryCache();
             services.AddSession();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())

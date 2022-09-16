@@ -1,0 +1,15 @@
+﻿@using HomeValue.Data.Repository
+@model Estimate
+
+@{
+    ViewData["Title"] = "IndexCount";
+}
+
+<h1>IndexCount</h1>
+@foreach (var el in Model.Estimates)
+{
+    <p>Объем работ: @el.Volume</p>
+    <p>Цена за работу(включая материал): @el.Price</p>
+}
+<p>Итоговая цена @Model.TotalPrice()</p>
+
