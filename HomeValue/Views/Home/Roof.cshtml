@@ -1,12 +1,16 @@
-﻿
+﻿@model Element 
+
 @{
     ViewData["Title"] = "Roof";
 }
 
 <h1>Roof</h1>
 <form method="post" asp-action="RoofValue" asp-controller="Count">
+    <input hidden name="Name" value="@Model.Name" />
     <p>Length: <input name="length" value="14" /></p>
     <p>Width: <input name="width" value="10" /></p>
     <p hidden>Higth: <input name="higth" value="1" /></p>
-    <input type="submit" value="Send" />
+    <p>Стоимость работы: <input name="JobPrice" value="@Model.JobPrice" /></p>
+    <p>Стоимость материала: <input name="MaterialPrice" value="@Model.MaterialPrice" /></p>
+    <input type="submit" value="Посчитать" />
 </form>

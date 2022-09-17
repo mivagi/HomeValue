@@ -10,6 +10,7 @@ namespace HomeValue.Data.Interfaces
     public interface IAllElements
     {
         IEnumerable<Element> Elements { get; }
+        void EditElement(Element element);
         Element GetOneElement(int id);
     }
 }

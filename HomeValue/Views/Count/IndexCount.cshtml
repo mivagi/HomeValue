@@ -8,8 +8,12 @@
 <h1>IndexCount</h1>
 @foreach (var el in Model.Estimates)
 {
+    <h4>@el.Parameter.Name</h4>
     <p>Объем работ: @el.Volume</p>
     <p>Цена за работу(включая материал): @el.Price</p>
+    <form asp-action="Delete" asp-controller="Count" asp-route-name="@el.Name">
+        <input type="submit" value="Удалить"/>
+    </form>
 }
-<p>Итоговая цена @Model.TotalPrice()</p>
+<h4>Итоговая цена @Model.TotalPrice()</h4>
 

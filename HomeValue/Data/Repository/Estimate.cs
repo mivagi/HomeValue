@@ -23,17 +23,24 @@ namespace HomeValue.Data.Repository
             estimate.Session = session;
             return estimate;
         }
-        public void AddEstimeteItem(Parameter param, float price)
+        public void AddEstimeteItem(Parameter param)
         {
             listEstimateItems.Add(
                 new EstimateItem { 
-                    Parameter = param, 
+                    Parameter = param,
+                    Name = param.Name,
                     Volume = param.Higth * param.Length * param.Width,
-                    Price = param.Higth * param.Length * param.Width * price
+                    Price = param.Higth * param.Length * param.Width * (param.MaterialPrice + param.JobPrice)
                 });
             Session.SetJson("EstimateId", this);
         }
         public IEnumerable<EstimateItem> Estimates => listEstimateItems;
         public float TotalPrice() => listEstimateItems.Sum(s => s.Price);
+        public void Delete(string name)
+        {
+            var estimate = Estimates.FirstOrDefault(p => p.Name == name);
+            listEstimateItems.Remove(estimate);
+            Session.SetJson("EstimateId", this);
+        }
     }
 }

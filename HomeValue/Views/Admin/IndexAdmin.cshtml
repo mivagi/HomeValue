@@ -1,0 +1,18 @@
+﻿@model IEnumerable<Element>
+
+@{
+    ViewData["Title"] = "IndexAdmin";
+}
+
+<h1>IndexAdmin</h1>
+@foreach(var el in Model)
+{
+    <table>
+        <tbody>
+            <tr>
+                <td><p>@el.Name</p></td>
+                <td><a asp-action="Edit" asp-route-id="@el.Id">редактировать</a></td>
+            </tr>
+        </tbody>
+    </table>
+}

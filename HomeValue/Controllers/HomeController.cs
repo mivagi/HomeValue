@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace HomeValue.Controllers
 {
+    //Контроллер позволяет выбрать стоимость чего расчитать
     public class HomeController : Controller
     {
         private readonly IAllElements elements;
@@ -22,11 +23,21 @@ namespace HomeValue.Controllers
         public IActionResult Distributor(string name)
         {
             if (name == "фундамент")
-                return View("Concrete");
+            {
+                var el = elements.Elements.FirstOrDefault(n => n.Name == name);
+                return View("Concrete", el);
+            }
             else if (name == "стены")
-                return View("Wall");
+            {
+                var el = elements.Elements.FirstOrDefault(n => n.Name == name);
+                return View("Wall", el);
+            }
             else
-                return View("Roof");
+            {
+                var el = elements.Elements.FirstOrDefault(n => n.Name == name);
+                return View("Roof", el);
+            }
+                
         }
     }
 }

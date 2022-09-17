@@ -18,6 +18,16 @@ namespace HomeValue.Data.Repository
         }
         public IEnumerable<Element> Elements => content.Elements;
 
+        public void EditElement(Element element)
+        {
+            Element newElement = content.Elements.FirstOrDefault(i => i.Id == element.Id);
+            newElement.Name = element.Name;
+            newElement.JobPrice = element.JobPrice;
+            newElement.MaterialPrice = element.MaterialPrice;
+               
+            content.SaveChanges();
+        }
+
         public Element GetOneElement(int id)
         {
             return content.Elements.FirstOrDefault(e => e.Id == id);

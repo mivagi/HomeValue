@@ -1,0 +1,21 @@
+﻿@model Element 
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+<form method="post" asp-action="Edit">
+    <h3>@Model.Name</h3>
+    <div>
+        <input hidden value="@Model.Name" asp-for="@Model.Name" />
+        <label>Цена работы</label>
+        <input value="@Model.JobPrice" asp-for="@Model.JobPrice" />
+    </div><br />
+    <div>
+        <label>Цена материала</label>
+        <input value="@Model.MaterialPrice" asp-for="@Model.MaterialPrice" />
+    </div><br />
+    <div>
+        <input type="submit" value="сохранить" />
+    </div>
+</form>

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace HomeValue.Controllers
 {
+    //В контроллере производяться вычисления и переход на страницу со сметой
     public class CountController : Controller
     {
         private readonly IAllElements elements;
@@ -25,23 +26,22 @@ namespace HomeValue.Controllers
         }
         public IActionResult ConcreteValue(Parameter param)
         {
-            var el = elements.Elements.FirstOrDefault(p => p.Id == 1);
-            float pice = el.JobPrice + el.MaterialPrice;
-            estimate.AddEstimeteItem(param, pice);
+            estimate.AddEstimeteItem(param);
             return RedirectToAction("IndexCount");
         }
         public IActionResult WallValue(Parameter param)
         {
-            var el = elements.Elements.FirstOrDefault(p => p.Id == 1);
-            float pice = el.JobPrice + el.MaterialPrice;
-            estimate.AddEstimeteItem(param, pice);
+            estimate.AddEstimeteItem(param);
             return RedirectToAction("IndexCount");
         }
         public IActionResult RoofValue(Parameter param)
         {
-            var el = elements.Elements.FirstOrDefault(p => p.Id == 1);
-            float pice = el.JobPrice + el.MaterialPrice;
-            estimate.AddEstimeteItem(param, pice);
+            estimate.AddEstimeteItem(param);
+            return RedirectToAction("IndexCount");
+        }
+        public IActionResult Delete(string name)
+        {
+            estimate.Delete(name);
             return RedirectToAction("IndexCount");
         }
     }
